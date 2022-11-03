@@ -25,8 +25,8 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to topic_url(@topic), notice: "Topic was successfully created." }
-        format.json { render :show, status: :created, location: @topic }
+        format.html { redirect_to topics_path, notice: "Topic was successfully created." }
+        format.json { render :index, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @topic.errors, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class TopicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def topic_params
-      params.fetch(:topic, {})
+      params.require(:topic).permit(:name)
     end
 end

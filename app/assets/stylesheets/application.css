@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ input#topic_name {
+  padding: 8px 16px;
+  border: 1px solid black;
+  border-radius: 16px;
+  box-shadow: 0 10px 6px -6px #999;
+  width: 240px;
+  margin-top: 8px;
+ }
+
+ div.new-submit {
+  margin-top: 16px;
+ }
+
+ div.new-name-wrapper {
+  display: flex;
+  flex-direction: column;
+ }
