@@ -31,3 +31,16 @@
   display: flex;
   flex-direction: column;
  }
+
+ div.topic {
+  display: flex;
+ }
+
+div.like-number {
+  margin-left: 8px;
+}
+
+ div.like-button {
+  margin-left: 8px;
+  cursor: pointer;
+ }

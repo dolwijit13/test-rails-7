@@ -1,9 +1,9 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: %i[ show edit update destroy ]
+  before_action :set_topic, only: %i[ show edit update destroy increase_like ]
 
   # GET /topics or /topics.json
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order(like: :desc)
   end
 
   # GET /topics/1 or /topics/1.json
@@ -54,6 +54,15 @@ class TopicsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to topics_url, notice: "Topic was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def increase_like
+    @topic.like += 1
+    @topic.save
+
+    respond_to do |format|
+      format.json { render json: @topic, status: :ok }
     end
   end
 

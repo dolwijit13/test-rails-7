@@ -1,5 +1,11 @@
 <%= turbo_stream_from "topics" %>
 
-<div id="<%= dom_id topic %>">
+<div id="<%= dom_id topic %>" class="topic">
   <%= link_to topic.name, topic %>
+  <div class="like-number"><%= topic.like %></div>
+  <div data-controller="like" class="like-button">
+    <%= button_to "Like!", increase_like_topic_path(topic.id) %>
+  </div>
+</div>
+
 </div>
